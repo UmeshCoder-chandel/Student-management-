@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Settings</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <style>
+    body {
+      background-color: #5e2b97;
+    }
+    .card {
+      border-radius: 12px;
+    }
+    .profile-sidebar {
+      border-right: 1px solid #dee2e6;
+      text-align: center;
+      padding: 30px;
+    }
+    .profile-sidebar img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+    .btn-purple {
+      background-color: #5e2b97;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="card p-4">
+            <div class="row">
+                <!-- Left Sidebar -->
+                <div class="col-md-3 profile-sidebar">
+                    <img src="" alt="profile">
+                    <h5 class="mt-3" style="text-transform: uppercase;"><%= student.name %></h5>
+                    <p><%= student.email %></p>
+                </div>
+
+      <!-- Profile Settings Form -->
+      <div class="col-md-6">
+        <h4 class="mb-4">Student Data</h4>
+        <form>
+          <div class="row mb-3">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="name" value="<%= student.name %>">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" value="<%= student.email %>">
+            </div>
+          </div>
+
+          <input type="text" class="form-control mb-3"  value="<%= student.course %>">
+          <input type="text" class="form-control mb-3" value="<%= student.age %>">
+          <input type="text" class="form-control mb-3" value="<%= student.address %>">
+          <input type="text" class="form-control mb-3" value="<%= student.gender %>">
+          <input type="text" class="form-control mb-3" value="<%= student.dob %>">
+          <input type="text" class="form-control mb-3" value="<%= student.phone %>">
+          <input type="email" class="form-control mb-3" value="<%= student.admission_date %>">
+          <input type="text" class="form-control mb-3" value="<%= student.status %>">
+
+                        <a href="/giveedit/<%= student.id %>" class="btn btn-warning">Edit</a>
+                           <a href="#" class="btn btn-danger"
+                         onclick="confirmDelete('<%= student.id %>')">Delete</a>
+                            <a href="/view/<%= student.id %>" class="btn btn-info">View</a>
+                </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    function confirmDelete(id){
+          Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                background: '#f8f9fa',
+                backdrop: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = `/delete/${id}`;
+                }
+            })
+
+
+    }
+</script>
+</body>
+</html>

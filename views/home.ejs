@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #19e9bf;
+    }
+    .hero-text {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    .card-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    #about {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Student Management</a>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Administration</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/add-teachers">Teachers</a></li>
+              <li><a class="dropdown-item" href="/add-student">Students</a></li>
+              <li><a class="dropdown-item" href="/add-course">Courses</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/account">My Account</a></li>
+          <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+      <div class="bg-info text-end py-1 px-3 m-0">
+    <marquee behavior="scroll" direction="left">Welcome to the Student Management System</marquee>
+    </div>
+    <section class="main-section">
+<div style="background-image: url('https://i.pinimg.com/736x/d4/dc/ab/d4dcabc4d06ec889c388bd4ce99cb6b4.jpg'); height: 700px; margin-top: 50px; padding: auto;">
+  <!-- Hero Text -->
+  <div class="hero-text" >
+    <h1>Welcome to the Student Management System</h1>
+    <p>This is a simple student management system built with Node.js, Express, and EJS.</p>
+  </div>
+
+  <!-- Cards -->
+  <div class="container card-container">
+    <div class="card text-center" style="width: 18rem;">
+      <div class="card-body">
+          <img src="/teacher.jpeg" alt="" style="width: 250px; height: 250px; margin: 10px;">
+        <h5 class="card-title">Teachers</h5>
+        <p class="card-text">Manage and view teacher information.</p>
+        <a href="/add-teachers" class="btn btn-primary">View</a>
+      </div>
+    </div>
+    <div class="card text-center" style="width: 18rem;">
+      <div class="card-body">
+          <img src="/student.png" alt="" style="width: 250px; height: 250px; margin: 10px;">
+        <h5 class="card-title">Students</h5>
+        <p class="card-text">Manage and view student information.</p>
+        <a href="/add-student" class="btn btn-primary">View</a>
+      </div>
+    </div>
+    <div class="card text-center" style="width: 18rem;">
+      <div class="card-body">
+          <img src="/book.jpeg" alt="" style="width: 250px; height: 250px; margin: 10px;">
+          <h5 class="card-title">Courses</h5>
+        <p class="card-text">Manage and view course details.</p>
+        <a href="/add-course" class="btn btn-primary">View</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+  <!-- About Section -->
+<section class="" id="about">
+  <div class="container py-5 ">
+    <div class="main-txt text-center">
+      <h1 class="about-title">About<span>Us</span></h1>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+      <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+         <img src="https://www.iitms.co.in/products/img/student-information-system-sis.png" alt="" height="230px">
+        </div>
+      </div>
+  
+      <div class="col-md-4 py-3 py-md-0">
+        <h2>Students</h2>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, laboriosam? Doloremque est optio eum molestiae.</p>
+      <button id="about-btn" ><a href="#">Read More...</a></button>
+    </div>
+
+    </div>
+  </div>
+</section>
+  <!-- Footer -->
+<footer class="car-footer py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 mb-4">
+        <h4 class="text-white mb-4"><i class="fas fa-car-side me-2"></i> Student Management</h4>
+        <p class="text-white-50">Your trusted partner for student management, academic records, and enrollment services.</p>
+      </div>
+      <div class="col-lg-3 mb-4">
+        <h5 class="text-white mb-4">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">Book Online</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 mb-4">
+        <h5 class="text-white mb-4">Our Services</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white-50 text-decoration-none"></a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none"></a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none"></a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">24/7 Support</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 mb-4">
+        <h5 class="text-white mb-4">Stay Connected</h5>
+        <div class="d-flex mb-3">
+          <a href="#" class="car-social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="car-social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="car-social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="car-social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="text-white-50 small">Subscribe for offers & latest arrivals</p>
+        <div class="input-group">
+          <input type="email" class="form-control" placeholder="Your email">
+          <button class="btn btn-warning" type="button">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4 bg-secondary opacity-50">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start">
+        <p class="small text-white-50 mb-0">© 2025 AutoDrive. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <a href="#" class="text-white-50 small me-3 text-decoration-none">Privacy Policy</a>
+        <a href="#" class="text-white-50 small me-3 text-decoration-none">Terms & Conditions</a>
+        <a href="#" class="text-white-50 small text-decoration-none">Support</a>
+      </div>
+    </div>
+  </div>
+</footer>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

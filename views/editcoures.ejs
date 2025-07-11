@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit User</title>
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Edit Course</h2>
+    <form action="/editcourse/<%= course.id %>" method="post" class="row g-3">
+      <div class="col-12">
+        <label class="form-label">Course Name</label>
+        <input type="text" name="name" class="form-control" placeholder="Enter course name" value="<%= course.name %>" required>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Department</label>
+        <input type="text" name="department" class="form-control" placeholder="Enter department" value="<%= course.department %>" required>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-success px-4">Edit Course</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+

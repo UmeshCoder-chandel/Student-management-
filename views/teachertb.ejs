@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Student Management</a>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Administration</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/add-teachers">Teachers</a></li>
+              <li><a class="dropdown-item" href="/add-student">Students</a></li>
+              <li><a class="dropdown-item" href="/add-course">Courses</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/account">My Account</a></li>
+          <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Teacher List</h2>
+        <div class="d-flex justify-content-between mb-4">
+
+            <form action="/add-teacher" method="get" class="d-flex" style="width: 400px;">
+                <input type="text" name="search"  class="form-control" placeholder="Search by name or email" value="<%= search%>">
+                <button type="submit" class="btn btn-outline-success">Search</button>
+            </form>
+            <form action="/add-teacher" method="get" class="d-flex">
+
+                <select name="sort" id="" class="form-select" style="width: 200px; margin-right: 10px;">
+                    <option value="">Sort By</option>
+                    <option value="id" <%=sortby==='id' ? 'selected' : ' ' %>>ID</option>
+                    <option value="name" <%=sortby==='name' ? 'selected' : ' ' %>>Name</option>
+                    <option value="email" <%=sortby==='email' ? 'selected' : ' ' %>>Email</option>
+                    <option value="department" <%=sortby==='department' ? 'selected' : ' ' %>>Department</option>
+                    <option value="experience" <%=sortby==='experience' ? 'selected' : ' ' %>>Experience</option>
+                </select>
+                <button type="submit" class="btn btn-outline-primary">Sort</button>
+            </form>
+            <a href="/add" class="btn btn-outline-success mb-4">Add Teacher</a>
+
+        </div>
+
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr class="col-md-8">
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Department</th>
+                    <th class="text-center">Experience</th>           
+                    <th class="text-center col-actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% result.forEach(teacher=> { %>
+                    <tr>
+                        <td>
+                            <%= teacher.id %>
+                        </td>
+                        <td>
+                            <%= teacher.name %>
+                        </td>
+                        <td>
+                            <%= teacher.email %>
+                        </td>
+                        <td>
+                            <%= teacher.department %>
+                        </td>
+                        <td>
+                            <%= teacher.experience %>
+                        </td>
+                        <td>
+                            <a href="/edit-teacher/<%= teacher.id %>" class="btn btn-warning">Edit</a>
+                           <a href="#" class="btn btn-danger"
+                               onclick="confirmDelete('<%= teacher.id %>')">Delete</a>
+                            <a href="/view-teacher/<%= teacher.id %>" class="btn btn-info">View</a>
+
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                background: '#f8f9fa',
+                backdrop: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = `/delete-teacher/${id}`;
+                }
+            })
+        }
+    </script>
+</body>
+</html>
